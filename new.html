@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Knovon Network</title>
+    <style>
+        /* Reset some default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            perspective: 1000px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 40px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: rotateY(10deg) rotateX(10deg);
+        }
+
+        .logo img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <!-- Replace the src with the URL or path to your Knovon logo -->
+                <img src="https://knovon.org/logo.png" alt="Knovon Logo">
+            </div>
+            <h1>You Are Connected!</h1>
+            <p>You are now connected to the secure private corporate network.</p>
+            <p class="disclaimer">This network is monitored for security purposes.</p>
+        </div>
+    </div>
+</body>
+</html>

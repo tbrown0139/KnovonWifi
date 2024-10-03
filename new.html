@@ -13,12 +13,13 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0e0e0, #f7f7f7);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 20px;
         }
 
         .container {
@@ -26,40 +27,88 @@
         }
 
         .card {
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
             padding: 40px;
             text-align: center;
             transform-style: preserve-3d;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .card:hover {
             transform: rotateY(10deg) rotateX(10deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
         .logo img {
-            width: 150px;
+            width: 120px;
             margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.75rem;
+            margin-bottom: 15px;
             color: #333;
+            letter-spacing: 1px;
         }
 
         p {
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
             color: #555;
+            line-height: 1.6;
         }
 
         .disclaimer {
-            font-size: 0.85rem;
-            color: #999;
+            font-size: 1rem;
+            color: #888;
+            margin-top: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .disclaimer {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+
+            .disclaimer {
+                font-size: 0.85rem;
+            }
+
+            .logo img {
+                width: 100px;
+            }
         }
     </style>
 </head>
@@ -68,11 +117,13 @@
         <div class="card">
             <div class="logo">
                 <!-- Replace the src with the URL or path to your Knovon logo -->
-                <img src="https://knovon.org/logo.png" alt="Knovon Logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="Knovon Logo">
             </div>
-            <h1>You Are Connected!</h1>
-            <p>You are now connected to the secure private corporate network.</p>
-            <p class="disclaimer">This network is monitored for security purposes.</p>
+            <h1>Connected to Knovon Network</h1>
+            <p>Welcome! You are now connected to our secure private corporate network.</p>
+            <p class="disclaimer">
+                Disclaimer: This network is monitored for security and policy compliance. By connecting, you agree to our terms of use and privacy policies.
+            </p>
         </div>
     </div>
 </body>

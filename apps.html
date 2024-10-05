@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Apps - Knovon Network</title>
+    <!-- Include Font Awesome for the ads icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Reset default browser styles */
         * {
@@ -47,6 +49,7 @@
             max-width: 300px;
             padding: 20px;
             text-align: center;
+            position: relative;
             transform-style: preserve-3d;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
@@ -98,6 +101,37 @@
             box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
         }
 
+        /* Special design for the ad card */
+        .ad-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-image: url('https://via.placeholder.com/300x200'); /* Replace with actual ad image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .ad-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .ad-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #888;
+            opacity: 0.6;
+        }
+
         /* Footer styling */
         footer {
             text-align: center;
@@ -123,7 +157,7 @@
                 justify-content: space-between;
             }
 
-            .app-card {
+            .app-card, .ad-card {
                 flex: 1 1 calc(25% - 20px);
             }
         }
@@ -136,7 +170,7 @@
                 padding-bottom: 20px;
             }
 
-            .app-card {
+            .app-card, .ad-card {
                 flex: 0 0 calc(80% - 10px);
                 margin-right: 10px;
             }
@@ -176,7 +210,15 @@
             <a href="/app2" class="btn">Learn More</a>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3 (Ad Card) -->
+        <div class="ad-card">
+            <i class="fas fa-ad ad-icon"></i> <!-- Font Awesome ad icon -->
+            <div class="app-title">Romance in Roblox</div>
+            <div class="app-description">Get our new book "Romance in Roblox" now available for purchase!</div>
+            <a href="/book" class="btn">Buy Now</a>
+        </div>
+
+        <!-- Card 4 -->
         <div class="app-card">
             <div class="app-logo">
                 <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 3">
@@ -186,17 +228,43 @@
             <a href="/app3" class="btn">Learn More</a>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Card 5 to Card 8 -->
+        <!-- Copy the same structure as other app cards for these cards -->
         <div class="app-card">
             <div class="app-logo">
                 <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 4">
             </div>
             <div class="app-title">App 4</div>
-            <div class="app-description">This is a description of App 4. It provides unique features for a better experience.</div>
+            <div class="app-description">Description of App 4. Great tools and features.</div>
             <a href="/app4" class="btn">Learn More</a>
         </div>
-
-        <!-- Add more app cards here -->
+        
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 5">
+            </div>
+            <div class="app-title">App 5</div>
+            <div class="app-description">Description of App 5. It provides unique solutions.</div>
+            <a href="/app5" class="btn">Learn More</a>
+        </div>
+        
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 6">
+            </div>
+            <div class="app-title">App 6</div>
+            <div class="app-description">Description of App 6. More tools for users.</div>
+            <a href="/app6" class="btn">Learn More</a>
+        </div>
+        
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 7">
+            </div>
+            <div class="app-title">App 7</div>
+            <div class="app-description">Description of App 7. Get the best features.</div>
+            <a href="/app7" class="btn">Learn More</a>
+        </div>
     </div>
 
     <footer>

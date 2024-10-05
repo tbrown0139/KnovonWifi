@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Knovon Guest Network</title>
+    <title>Welcome to Knovon Network</title>
     <style>
         /* Reset some default browser styles */
         * {
@@ -36,18 +36,12 @@
             padding: 40px;
             text-align: center;
             transform-style: preserve-3d;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
         }
 
         /* Card hover and mouse interaction effect */
         .container:hover .card {
-            transform: rotateY(10deg) rotateX(10deg);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Interactive hover effect on card */
-        .container:active .card {
-            transform: scale(0.98);
         }
 
         .logo img {
@@ -153,7 +147,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="card">
+        <div class="card" id="interactive-card">
             <div class="logo">
                 <!-- Replace the src with the URL or path to your Knovon logo -->
                 <img src="https://knovon.org/logo.png" alt="Knovon Logo">
@@ -168,5 +162,21 @@
             <a href="/apps" class="btn">Apps</a>
         </div>
     </div>
+
+    <script>
+        // Interactive 3D effect on the card
+        const card = document.getElementById('interactive-card');
+        const container = document.querySelector('.container');
+
+        container.addEventListener('mousemove', (e) => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Knovon Network</title>
+    <title>Welcome to Knovon Guest Network</title>
     <style>
         /* Reset some default browser styles */
         * {
@@ -26,6 +26,7 @@
             perspective: 1000px;
         }
 
+        /* Interactive card design */
         .card {
             background-color: #ffffff;
             border-radius: 20px;
@@ -38,9 +39,15 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        .card:hover {
+        /* Card hover and mouse interaction effect */
+        .container:hover .card {
             transform: rotateY(10deg) rotateX(10deg);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Interactive hover effect on card */
+        .container:active .card {
+            transform: scale(0.98);
         }
 
         .logo img {
@@ -71,25 +78,30 @@
         }
 
         /* Button styling */
-        .round-btn {
+        .btn {
             display: inline-block;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            padding: 15px 25px;
+            margin: 10px;
             background-color: #007bff;
             color: #fff;
-            text-align: center;
-            line-height: 60px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
         }
 
-        .round-btn:hover {
+        .btn:hover {
             background-color: #0056b3;
-            transform: scale(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
         }
 
         /* Responsive design */
@@ -108,13 +120,6 @@
 
             .disclaimer {
                 font-size: 0.9rem;
-            }
-
-            .round-btn {
-                width: 55px;
-                height: 55px;
-                line-height: 55px;
-                font-size: 1.1rem;
             }
         }
 
@@ -139,11 +144,9 @@
                 width: 100px;
             }
 
-            .round-btn {
-                width: 50px;
-                height: 50px;
-                line-height: 50px;
-                font-size: 1rem;
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -160,8 +163,9 @@
             <p class="disclaimer">
                 Disclaimer: This network is monitored for security and policy compliance. By connecting, you agree to our terms of use and privacy policies.
             </p>
-            <!-- Round button that links to the terms and conditions page -->
-            <a href="/terms" class="round-btn">i</a>
+            <!-- Interactive buttons that link to the Policy and Apps pages -->
+            <a href="/policy" class="btn">Policy</a>
+            <a href="/apps" class="btn">Apps</a>
         </div>
     </div>
 </body>

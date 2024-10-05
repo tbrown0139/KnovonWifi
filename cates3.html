@@ -65,10 +65,10 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
-        /* Animated checkmark */
+        /* Optimized checkmark */
         .checkmark {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             margin: 0 auto 20px;
             position: relative;
         }
@@ -76,7 +76,7 @@
         .checkmark-circle {
             stroke-dasharray: 166;
             stroke-dashoffset: 166;
-            stroke-width: 5;
+            stroke-width: 4;
             stroke-miterlimit: 10;
             stroke: #4caf50;
             fill: none;
@@ -87,7 +87,7 @@
             transform-origin: 50% 50%;
             stroke-dasharray: 48;
             stroke-dashoffset: 48;
-            stroke-width: 5;
+            stroke-width: 4;
             stroke: #4caf50;
             fill: none;
             animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
@@ -166,8 +166,22 @@
 
         footer .footer-logo img {
             width: 60px;
-            opacity: 0.6; /* Makes the logo translucent */
-            filter: grayscale(100%); /* Grayed out */
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+
+        /* Offline banner */
+        .offline-banner {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            display: none;
+            font-size: 1rem;
+            font-weight: bold;
         }
 
         /* Responsive design */
@@ -222,6 +236,10 @@
     </style>
 </head>
 <body>
+    <div class="offline-banner" id="offline-banner">
+        Oops! Looks like your connection is not stable.
+    </div>
+
     <div class="container">
         <div class="card" id="interactive-card">
             <div class="checkmark">
@@ -235,7 +253,6 @@
             <p class="disclaimer">
                 This network is monitored and protected. Some content may be restricted, and inappropriate activity may result in your device being blocked. This network utilizes automated monitoring systems. All network traffic is tracked and analyzed for security purposes. By using this network, you agree to abide by our policies.
             </p>
-            <!-- Add buttons -->
             <a href="/policy" class="btn">View Policy</a>
             <a href="/support" class="btn">Contact Support</a>
         </div>
@@ -272,6 +289,15 @@
 
         container.addEventListener('mouseleave', () => {
             card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // Monitor connection status
+        window.addEventListener('offline', function () {
+            document.getElementById('offline-banner').style.display = 'block';
+        });
+
+        window.addEventListener('online', function () {
+            document.getElementById('offline-banner').style.display = 'none';
         });
     </script>
 </body>

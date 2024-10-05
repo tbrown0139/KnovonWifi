@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Apps - Knovon Network</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0e0e0, #f7f7f7);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Page header */
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* App cards layout */
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .app-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-logo img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .app-description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        footer .footer-logo img {
+            width: 60px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+
+        /* Responsive styles */
+        @media (min-width: 769px) {
+            .app-container {
+                justify-content: space-between;
+            }
+
+            .app-card {
+                flex: 1 1 calc(25% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 10px;
+                padding-bottom: 20px;
+            }
+
+            .app-card {
+                flex: 0 0 calc(80% - 10px);
+                margin-right: 10px;
+            }
+
+            .app-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            .app-container {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Apps</h1>
+
+    <div class="app-container">
+        <!-- Card 1 -->
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 1">
+            </div>
+            <div class="app-title">App 1</div>
+            <div class="app-description">This is a description of App 1. It provides users with amazing features.</div>
+            <a href="/app1" class="btn">Learn More</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 2">
+            </div>
+            <div class="app-title">App 2</div>
+            <div class="app-description">This is a description of App 2. It provides users with great features and tools.</div>
+            <a href="/app2" class="btn">Learn More</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 3">
+            </div>
+            <div class="app-title">App 3</div>
+            <div class="app-description">This is a description of App 3. It is designed to offer amazing features to users.</div>
+            <a href="/app3" class="btn">Learn More</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="app-card">
+            <div class="app-logo">
+                <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="App Logo 4">
+            </div>
+            <div class="app-title">App 4</div>
+            <div class="app-description">This is a description of App 4. It provides unique features for a better experience.</div>
+            <a href="/app4" class="btn">Learn More</a>
+        </div>
+
+        <!-- Add more app cards here -->
+    </div>
+
+    <footer>
+        <p>Powered by Knovon Network</p>
+        <div class="footer-logo">
+            <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="Knovon Logo">
+        </div>
+    </footer>
+
+    <script>
+        // You can add interactive JavaScript for cards here if needed.
+    </script>
+</body>
+</html>

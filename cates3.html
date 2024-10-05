@@ -65,36 +65,38 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
-        /* Original round checkmark */
+        /* Animated checkmark */
         .checkmark {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             margin: 0 auto 20px;
             position: relative;
-            border-radius: 50%;
-            border: 5px solid #4caf50;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .checkmark::before {
-            content: '';
-            width: 60px;
-            height: 60px;
-            background-color: #4caf50;
-            border-radius: 50%;
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 5;
+            stroke-miterlimit: 10;
+            stroke: #4caf50;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
         }
 
         .checkmark-check {
-            width: 40px;
-            height: 40px;
-            border-left: 5px solid white;
-            border-bottom: 5px solid white;
-            transform: rotate(-45deg);
-            position: absolute;
-            top: 25px;
-            left: 30px;
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke-width: 5;
+            stroke: #4caf50;
+            fill: none;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
         }
 
         h1 {
@@ -148,23 +150,12 @@
             box-shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
         }
 
-        /* Small, gray Information button with icon */
-        .info-btn {
-            padding: 8px;
-            background-color: #cccccc;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .info-btn i {
+        /* Clickable Info Icon */
+        .info-icon {
             color: #555;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         /* Overlay for Terms of Service */
@@ -307,9 +298,12 @@
 
     <div class="container">
         <div class="card" id="interactive-card">
-            <!-- Original checkmark -->
+            <!-- Animated checkmark -->
             <div class="checkmark">
-                <div class="checkmark-check"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14 27l8 8 16-16"/>
+                </svg>
             </div>
             <h1>Yay! You are now connected to the internet!</h1>
             <p>Welcome! Enjoy your connection to the Knovon Guest Network. You can start browsing safely and securely.</p>
@@ -318,9 +312,7 @@
             </p>
             <a href="#" class="btn">Browse</a>
             <a href="#" class="btn">Apps</a>
-            <button class="info-btn" id="info-btn">
-                <i class="fas fa-info-circle"></i>
-            </button>
+            <i class="fas fa-info-circle info-icon" id="info-btn"></i>
         </div>
     </div>
 

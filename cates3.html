@@ -34,46 +34,12 @@
             padding: 40px;
             text-align: center;
             transform-style: preserve-3d;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* Add hover effect for better visual feedback */
         .card:hover {
-            transform: translateY(-10px);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Animated checkmark */
-        .checkmark {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            position: relative;
-        }
-
-        .checkmark-circle {
-            stroke-dasharray: 166;
-            stroke-dashoffset: 166;
-            stroke-width: 5;
-            stroke-miterlimit: 10;
-            stroke: #4caf50;
-            fill: none;
-            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-        }
-
-        .checkmark-check {
-            transform-origin: 50% 50%;
-            stroke-dasharray: 48;
-            stroke-dashoffset: 48;
-            stroke-width: 5;
-            stroke: #4caf50;
-            fill: none;
-            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
-        }
-
-        @keyframes stroke {
-            100% {
-                stroke-dashoffset: 0;
-            }
         }
 
         h1 {
@@ -257,13 +223,6 @@
 
     <div class="container">
         <div class="card" id="interactive-card">
-            <!-- Animated checkmark -->
-            <div class="checkmark">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-                    <path class="checkmark-check" fill="none" d="M14 27l8 8 16-16"/>
-                </svg>
-            </div>
             <h1>Yay! You are now connected to the internet!</h1>
             <p>Welcome! Enjoy your connection to the Knovon Guest Network. You can start browsing safely and securely.</p>
             <a href="#" class="btn">Browse</a>
@@ -290,42 +249,17 @@
     </footer>
 
     <script>
-        const confettiCount = 100;
-        const confetti = [];
-
-        // Create confetti elements
-        for (let i = 0; i < confettiCount; i++) {
-            let confettiPiece = document.createElement('div');
-            confettiPiece.classList.add('confetti');
-            confettiPiece.style.left = Math.random() * 100 + 'vw';
-            confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confettiPiece.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(confettiPiece);
-            confetti.push(confettiPiece);
-        }
-
-        // Interactive 3D effect on the card
         const card = document.getElementById('interactive-card');
         const container = document.querySelector('.container');
 
         container.addEventListener('mousemove', (e) => {
-            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-
-            // Update confetti movement on mouse move
-            confetti.forEach((piece) => {
-                piece.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
-            });
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) scale(1.05)`;
         });
 
         container.addEventListener('mouseleave', () => {
-            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-
-            // Reset confetti movement when mouse leaves
-            confetti.forEach((piece) => {
-                piece.style.transform = '';
-            });
+            card.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
         });
 
         // Monitor connection status

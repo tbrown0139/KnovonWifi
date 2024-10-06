@@ -34,7 +34,7 @@
             padding: 40px;
             text-align: center;
             transform-style: preserve-3d;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, scale 0.3s ease; /* Updated to add smooth scaling */
         }
 
         .card:hover {
@@ -101,6 +101,7 @@
             background-color: #ff0;
             animation: fall 3s infinite;
             border-radius: 50%;
+            z-index: -1; /* Confetti below card */
         }
 
         @keyframes fall {
@@ -170,6 +171,30 @@
             display: none;
             font-size: 1rem;
             font-weight: bold;
+            display: flex; /* Flexbox for centering */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Overlay for terms */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
         }
 
         /* Responsive design for mobile */
@@ -265,7 +290,7 @@
             confettiPiece.classList.add('confetti');
             confettiPiece.style.left = Math.random() * 100 + 'vw';
             confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confettiPiece.style.animationDuration = Math.random() * 3 + 2 + 's';
+            confettiPiece.style.animationDuration = Math.random() * 4 + 3 + 's'; // Between 3-7 seconds
             document.body.appendChild(confettiPiece);
             confetti.push(confettiPiece);
         }
@@ -301,9 +326,9 @@
         const day = currentDate.getDate();
 
         if (month === 11) {  // December (Christmas)
-            seasonalIcon.innerHTML = '<i class="fas fa-hat-wizard icon-shake"></i>';  // Replace with Santa hat icon
+            seasonalIcon.innerHTML = '<i class="fas fa-snowflake icon-shake"></i>';  // Replace with snowflake icon
         } else if (month === 9 && day >= 25) {  // Late October (Halloween)
-            seasonalIcon.innerHTML = '<i class="fas fa-pumpkin icon-shake"></i>';
+            seasonalIcon.innerHTML = '<i class="fas fa-ghost icon-shake"></i>';
         } else if (month === 0 && day <= 14) {  // Early January (New Year's)
             seasonalIcon.innerHTML = '<i class="fas fa-fireworks"></i>';  // Replace with fireworks icon
         } else {

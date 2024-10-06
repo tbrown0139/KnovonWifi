@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connected to the Internet</title>
     <style>
-        /* Reset default browser styles */
         * {
             margin: 0;
             padding: 0;
@@ -23,28 +22,6 @@
             padding: 20px;
             position: relative;
             overflow: hidden;
-        }
-
-        /* Confetti styling */
-        .confetti {
-            position: absolute;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background-color: #ff0;
-            animation: fall 3s infinite;
-            border-radius: 50%;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-50px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
         }
 
         /* Interactive card design */
@@ -314,13 +291,17 @@
 
     <script>
         const confettiCount = 100;
+        const confetti = [];
+
+        // Create confetti elements
         for (let i = 0; i < confettiCount; i++) {
-            let confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(confetti);
+            let confettiPiece = document.createElement('div');
+            confettiPiece.classList.add('confetti');
+            confettiPiece.style.left = Math.random() * 100 + 'vw';
+            confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confettiPiece.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(confettiPiece);
+            confetti.push(confettiPiece);
         }
 
         // Interactive 3D effect on the card
@@ -331,10 +312,20 @@
             let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
             let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
             card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+
+            // Update confetti movement on mouse move
+            confetti.forEach((piece) => {
+                piece.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
+            });
         });
 
         container.addEventListener('mouseleave', () => {
             card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+
+            // Reset confetti movement when mouse leaves
+            confetti.forEach((piece) => {
+                piece.style.transform = '';
+            });
         });
 
         // Monitor connection status

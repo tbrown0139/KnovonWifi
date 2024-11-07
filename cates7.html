@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected to the Internet</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0e0e0, #f7f7f7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Main Card */
+        .card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logo */
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .disclaimer-link {
+            font-size: 0.9rem;
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Recommend Apps Card */
+        .recommend-card {
+            background-color: #f0f0f0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recommend-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .recommend-card h3 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p,
+        .modal-content ul li {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+
+        .modal-close {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #0056b3;
+        }
+
+        /* Offline Banner */
+        .offline-banner {
+            background: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            width: calc(100% - 40px);
+            max-width: 400px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        footer .footer-logo img {
+            width: 60px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+
+            .modal-content {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-banner" id="offline-banner">
+        Your internet looks unstable. Try running a <a href="https://www.speedtest.net" target="_blank" style="color: yellow; text-decoration: underline;">speed test</a>.
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="Knovon Logo" class="logo">
+            <h1>Congratulations!</h1>
+            <p>Enjoy your secure connection to the Knovon Guest Network.</p>
+            <p class="disclaimer-link">See disclaimer</p>
+        </div>
+
+        <a href="#" class="recommend-card">
+            <h3>View Recommended Apps</h3>
+        </a>
+    </div>
+
+    <footer>
+        <p>Powered by Knovon Network</p>
+        <div class="footer-logo">
+            <img src="https://ok12static.oktacdn.com/fs/bco/1/fs0ieyg1efEWrp7oR5d7" alt="Knovon Logo">
+        </div>
+    </footer>
+
+    <!-- Modal for Disclaimer -->
+    <div class="modal" id="terms-modal">
+        <div class="modal-content">
+            <h2>Terms and Conditions</h2>
+            <p class="warning">Notice: This network is monitored using advanced AI systems, and all activity is logged and reviewed by human analysts to ensure compliance with our policies.</p>
+            <p>By using this network, you agree to the following rules:</p>
+            <ul>
+                <li>Use of this network must adhere to all applicable local and federal laws.</li>
+                <li>Accessing or sharing illegal, harmful, or inappropriate content is strictly prohibited.</li>
+                <li>Attempts to bypass network security or content filters will result in automatic disconnection and may be subject to further review.</li>
+                <li>Your connection is monitored for security and quality purposes. AI systems are employed for real-time analysis, and human review is conducted to ensure accuracy and compliance.</li>
+                <li>If you encounter any issues, including blocked sites that you believe should be accessible, you may report them at <a href="https://report.wifi.knovon.org" target="_blank" style="color: #007bff; text-decoration: underline;">report.wifi.knovon.org</a>.</li>
+            </ul>
+            <p>Our IT team is available 24/7 to assist you. For support, please contact us at:</p>
+            <ul>
+                <li>Email: <a href="mailto:network@knovon.org" style="color: #007bff; text-decoration: underline;">network@knovon.org</a></li>
+                <li>Phone: Knovon Office Number, ext 82753</li>
+            </ul>
+            <button class="modal-close">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Modal behavior
+        const disclaimerLink = document.querySelector('.disclaimer-link');
+        const termsModal = document.getElementById('terms-modal');
+        const closeModal = document.querySelector('.modal-close');
+
+        disclaimerLink.addEventListener('click', () => {
+            termsModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            termsModal.style.display = 'none';
+        });
+
+        // Monitor connection status
+        window.addEventListener('offline', function () {
+            document.getElementById('offline-banner').style.display = 'block';
+        });
+
+        window.addEventListener('online', function () {
+            document.getElementById('offline-banner').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
